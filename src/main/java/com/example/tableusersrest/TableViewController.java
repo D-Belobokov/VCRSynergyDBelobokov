@@ -1,6 +1,7 @@
 package com.example.tableusersrest;
 
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,12 +9,17 @@ import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 import javafx.collections.ObservableList;
+import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 import javax.swing.*;
 
@@ -38,6 +44,9 @@ public class TableViewController {
     private Button button_update;
 
     @FXML
+    private Button button_reboot;
+
+    @FXML
     private TableColumn<Users, String> col_email;
 
     @FXML
@@ -49,6 +58,8 @@ public class TableViewController {
     @FXML
     private TableColumn<Users, String> col_username;
     @FXML
+    private TableColumn<Users, String> col_note;
+    @FXML
     private TextField txt_email;
 
     @FXML
@@ -59,6 +70,9 @@ public class TableViewController {
 
     @FXML
     private TextField txt_id;
+
+    @FXML
+    private TextField txt_note;
 
     @FXML
     void Add_users(ActionEvent event) {
@@ -73,12 +87,13 @@ public class TableViewController {
 
     public void Add_users() {
         conn3 = MySqlConnect.ConnectDB();
-        String sql = "INSERT INTO users (username,user_password,user_email)values(?,?,?)";
+        String sql = "INSERT INTO users (username,user_password,user_email,note)values(?,?,?,?)";
         try {
             pst = conn3.prepareStatement(sql);
             pst.setString(1,txt_username.getText());
             pst.setString(2,txt_password.getText());
             pst.setString(3,txt_email.getText());
+            pst.setString(4,txt_note.getText());
             pst.execute();
 
             JOptionPane.showMessageDialog(null, " Пользователь добавлен ");
@@ -94,9 +109,10 @@ public class TableViewController {
             String value_2 = txt_username.getText();
             String value_3 = txt_password.getText();
             String value_4 = txt_email.getText();
+            String value_5 = txt_note.getText();
 
             String sql = "update users set user_id= '"+value_1+"',username= '"+value_2+"',user_password= '"+
-                    value_3+"',user_email= '"+value_4+"' where user_id='"+value_1+"' ";
+                    value_3+"',user_email= '"+value_4+"','"+value_5+"' where user_id='"+value_1+"' ";
             pst = conn3.prepareStatement(sql);
             pst.execute();
             JOptionPane.showMessageDialog(null,"Редактирование выполнено");
@@ -118,7 +134,22 @@ public class TableViewController {
         button_update.setOnAction(actionEvent -> {
             Edit();
         });
+        button_reboot.setOnAction(actionEvent -> {
+            button_reboot.getScene().getWindow().hide();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/com/example/tableusersrest/tableViewUsers.fxml"));
+            try {
+                loader.load(); // загружаем нужный файл
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            Parent root = loader.getRoot();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.showAndWait();
 
+
+        });
     }
 
     public void getSelected(javafx.scene.input.MouseEvent mouseEvent) {
