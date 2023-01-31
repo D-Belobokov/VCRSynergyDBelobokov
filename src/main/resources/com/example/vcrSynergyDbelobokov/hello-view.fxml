@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vcrSynergyDbelobokov.HelloController">
+   <children>
+      <AnchorPane prefHeight="132.0" prefWidth="850.0" style="-fx-background-color: #004444;">
+         <children>
+            <Button fx:id="button_auth" layoutX="662.0" layoutY="45.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="142.0" text="Авторизация">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Label layoutX="54.0" layoutY="48.0" prefHeight="36.0" prefWidth="194.0" text="Navigator device" textFill="#51a882">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="128.0" fitWidth="200.0" layoutX="324.0" layoutY="507.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img-vcr.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="319.0" layoutY="243.0" prefHeight="28.0" prefWidth="212.0" text="У вас уже есть аккаунт?">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txt_login" layoutX="324.0" layoutY="318.0" prefHeight="28.0" prefWidth="200.0" promptText="Логин :" />
+      <TextField fx:id="txt_password" layoutX="324.0" layoutY="371.0" prefHeight="28.0" prefWidth="200.0" promptText="Пароль :" />
+      <Button fx:id="buttonSingUp" layoutX="384.0" layoutY="425.0" mnemonicParsing="false" onAction="#SingUpUser" prefHeight="26.0" prefWidth="79.0" text="Вход" />
+   </children>
+</AnchorPane>

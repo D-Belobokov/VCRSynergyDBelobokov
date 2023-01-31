@@ -3,8 +3,9 @@ module com.example.tableusersrest {
     requires javafx.fxml;
     requires java.desktop;
     requires java.sql;
+    requires lombok;
 
 
-    opens com.example.tableusersrest to javafx.fxml;
-    exports com.example.tableusersrest;
+    opens com.example.vcrSynergyDbelobokov to javafx.fxml;
+    exports com.example.vcrSynergyDbelobokov;
 }
