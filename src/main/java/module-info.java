@@ -4,6 +4,7 @@ module com.example.tableusersrest {
     requires java.desktop;
     requires java.sql;
     requires lombok;
+    requires org.testng;
 
 
     opens com.example.vcrSynergyDbelobokov to javafx.fxml;
