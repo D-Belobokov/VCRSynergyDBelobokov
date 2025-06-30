@@ -10,13 +10,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class MySqlConnect {
-    Connection conn = null;
-
+    //Connection conn = null;
     public static Connection ConnectDB() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn1 = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/mynavigator_db",
-                    "root", "root");
+            Connection conn1 = (Connection) DriverManager.getConnection("jdbc:sqlite:vcr.sqlite");
             return conn1;
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);

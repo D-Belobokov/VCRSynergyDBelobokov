@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vcrSynergyDbelobokov.TableViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vcrSynergyDbelobokov.TableViewController">
     <children>
         <AnchorPane prefHeight="650.0" prefWidth="278.0" style="-fx-background-color: #004444;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="572.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -30,13 +30,13 @@
             </ImageView>
             </children>
         </AnchorPane>
-        <TableView fx:id="table_device" layoutX="278.0" layoutY="80.0" onMouseClicked="#getSelected" prefHeight="570.0" prefWidth="572.0">
+        <TableView fx:id="table_device" layoutX="278.0" layoutY="80.0" onMouseClicked="#getSelected" prefHeight="570.0" prefWidth="571.0">
             <columns>
                 <TableColumn fx:id="col_id" prefWidth="53.60003662109375" text="ID" />
                 <TableColumn fx:id="col_typeDevice" prefWidth="111.20001220703125" text="Тип устройства" />
                 <TableColumn fx:id="col_Manufacturer" prefWidth="108.7999267578125" text="Производитель" />
-                <TableColumn fx:id="col_owner" prefWidth="93.5999755859375" text="Владелец" />
-            <TableColumn fx:id="col_statusRepair" prefWidth="108.00006103515625" text="Статус ремонта" />
+                <TableColumn fx:id="col_owner" prefWidth="94.39996337890625" text="Владелец" />
+            <TableColumn fx:id="col_statusRepair" prefWidth="108.0" text="Статус ремонта" />
             <TableColumn fx:id="col_note" prefWidth="93.60003662109375" text="Коментарий" />
             </columns>
         </TableView>
